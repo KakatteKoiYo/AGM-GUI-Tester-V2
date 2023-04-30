@@ -136,7 +136,7 @@ namespace TestPageNavigation
             }
             catch (TimeoutException)
             {
-                if (connectedBoard == false)
+                if (connectedBoard == false || modoRadio == true)
 
                 {
                     throw new TimeoutException();
@@ -383,24 +383,31 @@ namespace TestPageNavigation
 
         private void exitRadio(bool errorRadio = false)
         {
+            //string bufferExit; 
+
+            modoRadio = false;
+            btnGSN.Enabled = false;
+            btnICCID.Enabled = false;
+            btnCSQ.Enabled = false;
+            btnExitRadio.Enabled = false;
+            btnStartRadio.Enabled = true;
+
+            showMessageOnResponseBox("");
+            showMessageOnStatusBox("");
+
             try
             {
-                modoRadio = false;
-                btnGSN.Enabled = false;
-                btnICCID.Enabled = false;
-                btnCSQ.Enabled = false;
-                btnExitRadio.Enabled = false;
-                btnStartRadio.Enabled = true;
-
-                showMessageOnResponseBox("");
-                showMessageOnStatusBox("");
+                
 
                 serialPort.DiscardInBuffer();
                 serialPort.ReadTimeout = 3000;
                 serialPort.Write("\u001A");
                 
 
+                //bufferExit = 
                 serialPort.ReadTo("mvm>");
+
+                //MessageBox.Show(bufferExit);
                 if(errorRadio == true)
                 {
                     showMessageOnResponseBox(
@@ -453,8 +460,8 @@ namespace TestPageNavigation
             try
             {
                 modoRadio = true;
-                showMessageOnResponseBox(sendCommand("S F.54 1\n", 3000));
-                showMessageOnResponseBox(sendCommand("S F.54 0\n", 3000));
+                sendCommand("S F.54 1\n", 3000);
+                sendCommand("S F.54 0\n", 3000);
                 sendCommand("LINK RADIO 115200\n", 8000, expected: "link...", customMessage: "Iniciando comunicación...");
                 timer1.Stop();
 

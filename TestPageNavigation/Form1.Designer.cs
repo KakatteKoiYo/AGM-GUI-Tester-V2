@@ -1528,6 +1528,7 @@ namespace TestPageNavigation
             this.Controls.Add(this.tbStatus);
             this.Controls.Add(this.tbRespuesta);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "AGM GUI Tester ";
             this.Load += new System.EventHandler(this.Form1_Load);
