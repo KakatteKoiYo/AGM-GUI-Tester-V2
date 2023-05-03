@@ -392,60 +392,68 @@ namespace TestPageNavigation
             btnExitRadio.Enabled = false;
             btnStartRadio.Enabled = true;
 
+            checkIfRadioRestartedTimer.Stop();
+
             showMessageOnResponseBox("");
             showMessageOnStatusBox("");
 
-            try
+            if (connectedBoard == false) 
             {
-                
-
-                serialPort.DiscardInBuffer();
-                serialPort.ReadTimeout = 3000;
-                serialPort.Write("\u001A");
-                
-
-                //bufferExit = 
-                serialPort.ReadTo("mvm>");
-
-                //MessageBox.Show(bufferExit);
-                if(errorRadio == true)
-                {
-                    showMessageOnResponseBox(
-                    "Comunicación con módulo abortada por error de comunicación con el módulo.\r\n" +
-                    "Ya puedes volver a utilizar comandos normales.");
-                }
-                else
-                {
-                    showMessageOnResponseBox(
-                    "Te desconectaste del módulo con éxito\r\n" +
-                    "Ya puedes volver a utilizar comandos normales.");
-                }
-                
-                timer1.Start();
-            }catch(TimeoutException){
                 try
                 {
-                    serialPort.Close();
-                }
-                finally
-                {
-                    resetForm();
-                    if(errorRadio == true)
+
+
+                    serialPort.DiscardInBuffer();
+                    serialPort.ReadTimeout = 3000;
+                    serialPort.Write("\u001A");
+
+
+                    //bufferExit = 
+                    serialPort.ReadTo("mvm>");
+
+                    //MessageBox.Show(bufferExit);
+                    if (errorRadio == true)
                     {
                         showMessageOnResponseBox(
-                        "Se trató de cerrar la comunicación con el módulo debido a un error pero ocurrió otro error. Por favor, haz reboot a la unidad.\r\n" +
-                        "Si el error persiste al hacer reboot, apaga y enciende la fuente de poder.");
+                        "Comunicación con módulo abortada por error de comunicación con el módulo.\r\n" +
+                        "Ya puedes volver a utilizar comandos normales.");
                     }
                     else
                     {
                         showMessageOnResponseBox(
-                        "Ocurrió un error al tratar de cerrar la comunicación con el módulo. Por favor, haz reboot a la unidad.\r\n" +
-                        "Si el error persiste al hacer reboot, apaga y enciende la fuente de poder.");
+                        "Te desconectaste del módulo con éxito\r\n" +
+                        "Ya puedes volver a utilizar comandos normales.");
                     }
-                    
+
+                    timer1.Start();
                 }
-                
+                catch (TimeoutException)
+                {
+                    try
+                    {
+                        serialPort.Close();
+                    }
+                    finally
+                    {
+                        resetForm();
+                        if (errorRadio == true)
+                        {
+                            showMessageOnResponseBox(
+                            "Se trató de cerrar la comunicación con el módulo debido a un error pero ocurrió otro error. Por favor, haz reboot a la unidad.\r\n" +
+                            "Si el error persiste al hacer reboot, apaga y enciende la fuente de poder.");
+                        }
+                        else
+                        {
+                            showMessageOnResponseBox(
+                            "Ocurrió un error al tratar de cerrar la comunicación con el módulo. Por favor, haz reboot a la unidad.\r\n" +
+                            "Si el error persiste al hacer reboot, apaga y enciende la fuente de poder.");
+                        }
+
+                    }
+
+                }
             }
+            
 
  
             
@@ -464,7 +472,7 @@ namespace TestPageNavigation
                 sendCommand("S F.54 0\n", 3000);
                 sendCommand("LINK RADIO 115200\n", 8000, expected: "link...", customMessage: "Iniciando comunicación...");
                 timer1.Stop();
-
+                checkIfRadioRestartedTimer.Start();
                 btnGSN.Enabled = true;
                 btnICCID.Enabled = true;
                 btnCSQ.Enabled = true;
@@ -503,10 +511,18 @@ namespace TestPageNavigation
                 tbIMEI.Text = mcResponse;
                 pfIMEI.BackColor = System.Drawing.Color.Red;
             }
+            else if(mcResponse.Contains("MV Monitor"))
+            {
+                connectedBoard = false;
+                exitRadio();
+                resetForm();
+                showMessageOnResponseBox("Ocurrió un error de comunicación con el módulo");
+              
+       
+            }
             else
             {
                 exitRadio(errorRadio: true);
-               
             }
 
    
@@ -532,11 +548,20 @@ namespace TestPageNavigation
                 tbICCID.Text = mcResponse;
                 pfICCID.BackColor = System.Drawing.Color.Red;
             }
+            else if (mcResponse.Contains("MV Monitor"))
+            {
+                connectedBoard = false;
+                exitRadio();
+                resetForm();
+                showMessageOnResponseBox("Ocurrió un error de comunicación con el módulo");
+
+
+            }
             else
             {
                 exitRadio(errorRadio: true);
-
             }
+
 
             //showMessageOnResponseBox(uResponse);
         }
@@ -558,11 +583,20 @@ namespace TestPageNavigation
                 tbCSQ.Text = mcResponse;
                 pfCSQ.BackColor = System.Drawing.Color.Red;
             }
+            else if (mcResponse.Contains("MV Monitor"))
+            {
+                connectedBoard = false;
+                exitRadio();
+                resetForm();
+                showMessageOnResponseBox("Ocurrió un error de comunicación con el módulo");
+
+                                                                                                                                                                                                                                                                                                                                                                                                                         
+            }
             else
             {
                 exitRadio(errorRadio: true);
-
             }
+
 
             //btnExitRadio.PerformClick();
             //showMessageOnResponseBox(uResponse);
@@ -921,6 +955,29 @@ namespace TestPageNavigation
                         "Si la unidad no inicia al tratar de bootear apaga y enciende la fuente e inténtalo de nuevo");
                 }
             }
+        }
+
+        private void checkIfRadioRestartedTimer_Tick(object sender, EventArgs e)
+        {
+
+            string buffer;
+
+            checkIfRadioRestartedTimer.Stop();
+
+            buffer = serialPort.ReadExisting();
+            if(buffer.Contains("MV Monitor"))
+            {
+                resetForm();
+                showMessageOnResponseBox("Ocurrió un error de comunicación con el módulo");
+            }
+            else
+            {
+                checkIfRadioRestartedTimer.Start();
+            }
+            
+
+            
+
         }
     }
 }

@@ -44,13 +44,13 @@ namespace TestPageNavigation
             this.btnLedOff = new System.Windows.Forms.Button();
             this.btnAP = new System.Windows.Forms.Button();
             this.tabPorts = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnLZK = new System.Windows.Forms.Button();
+            this.btnEFSG12 = new System.Windows.Forms.Button();
+            this.btnEFSG4 = new System.Windows.Forms.Button();
+            this.btnLZE = new System.Windows.Forms.Button();
+            this.btnLB = new System.Windows.Forms.Button();
+            this.btnHallSel = new System.Windows.Forms.Button();
+            this.btnRatioSel = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnTestTP = new System.Windows.Forms.Button();
             this.btnTestCC = new System.Windows.Forms.Button();
@@ -137,6 +137,7 @@ namespace TestPageNavigation
             this.pfHall1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.checkIfRadioRestartedTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabInicio.SuspendLayout();
             this.tabComandos.SuspendLayout();
@@ -280,13 +281,13 @@ namespace TestPageNavigation
             // tabPorts
             // 
             this.tabPorts.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPorts.Controls.Add(this.button4);
-            this.tabPorts.Controls.Add(this.button8);
-            this.tabPorts.Controls.Add(this.button7);
-            this.tabPorts.Controls.Add(this.button6);
-            this.tabPorts.Controls.Add(this.button3);
-            this.tabPorts.Controls.Add(this.button1);
-            this.tabPorts.Controls.Add(this.button5);
+            this.tabPorts.Controls.Add(this.btnLZK);
+            this.tabPorts.Controls.Add(this.btnEFSG12);
+            this.tabPorts.Controls.Add(this.btnEFSG4);
+            this.tabPorts.Controls.Add(this.btnLZE);
+            this.tabPorts.Controls.Add(this.btnLB);
+            this.tabPorts.Controls.Add(this.btnHallSel);
+            this.tabPorts.Controls.Add(this.btnRatioSel);
             this.tabPorts.Location = new System.Drawing.Point(4, 25);
             this.tabPorts.Name = "tabPorts";
             this.tabPorts.Padding = new System.Windows.Forms.Padding(3);
@@ -294,89 +295,89 @@ namespace TestPageNavigation
             this.tabPorts.TabIndex = 2;
             this.tabPorts.Text = "Pines";
             // 
-            // button4
+            // btnLZK
             // 
-            this.button4.BackColor = System.Drawing.Color.SteelBlue;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.button4.Location = new System.Drawing.Point(6, 218);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(132, 50);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnLZK.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnLZK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLZK.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLZK.Location = new System.Drawing.Point(6, 218);
+            this.btnLZK.Name = "btnLZK";
+            this.btnLZK.Size = new System.Drawing.Size(139, 50);
+            this.btnLZK.TabIndex = 7;
+            this.btnLZK.Text = "LO_ZIN_SKY";
+            this.btnLZK.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btnEFSG12
             // 
-            this.button8.BackColor = System.Drawing.Color.SteelBlue;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.Control;
-            this.button8.Location = new System.Drawing.Point(173, 151);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(134, 50);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnEFSG12.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnEFSG12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEFSG12.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEFSG12.Location = new System.Drawing.Point(162, 151);
+            this.btnEFSG12.Name = "btnEFSG12";
+            this.btnEFSG12.Size = new System.Drawing.Size(145, 50);
+            this.btnEFSG12.TabIndex = 6;
+            this.btnEFSG12.Text = "EFS_G1/2";
+            this.btnEFSG12.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnEFSG4
             // 
-            this.button7.BackColor = System.Drawing.Color.SteelBlue;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.Control;
-            this.button7.Location = new System.Drawing.Point(173, 84);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(134, 50);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnEFSG4.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnEFSG4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEFSG4.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEFSG4.Location = new System.Drawing.Point(162, 84);
+            this.btnEFSG4.Name = "btnEFSG4";
+            this.btnEFSG4.Size = new System.Drawing.Size(145, 50);
+            this.btnEFSG4.TabIndex = 5;
+            this.btnEFSG4.Text = "EFS_G4";
+            this.btnEFSG4.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnLZE
             // 
-            this.button6.BackColor = System.Drawing.Color.SteelBlue;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.Control;
-            this.button6.Location = new System.Drawing.Point(173, 18);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(134, 50);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnLZE.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnLZE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLZE.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLZE.Location = new System.Drawing.Point(162, 18);
+            this.btnLZE.Name = "btnLZE";
+            this.btnLZE.Size = new System.Drawing.Size(145, 50);
+            this.btnLZE.TabIndex = 4;
+            this.btnLZE.Text = "LO_ZIN_EARTH";
+            this.btnLZE.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnLB
             // 
-            this.button3.BackColor = System.Drawing.Color.SteelBlue;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(6, 151);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnLB.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLB.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLB.Location = new System.Drawing.Point(6, 151);
+            this.btnLB.Name = "btnLB";
+            this.btnLB.Size = new System.Drawing.Size(139, 50);
+            this.btnLB.TabIndex = 2;
+            this.btnLB.Text = "LOWER_BURDEN";
+            this.btnLB.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnHallSel
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(6, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 50);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnHallSel.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnHallSel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHallSel.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHallSel.Location = new System.Drawing.Point(6, 84);
+            this.btnHallSel.Name = "btnHallSel";
+            this.btnHallSel.Size = new System.Drawing.Size(139, 50);
+            this.btnHallSel.TabIndex = 1;
+            this.btnHallSel.Text = "HALL_SEL";
+            this.btnHallSel.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnRatioSel
             // 
-            this.button5.BackColor = System.Drawing.Color.SteelBlue;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.Control;
-            this.button5.Location = new System.Drawing.Point(6, 17);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(132, 50);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnRatioSel.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnRatioSel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRatioSel.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRatioSel.Location = new System.Drawing.Point(6, 17);
+            this.btnRatioSel.Name = "btnRatioSel";
+            this.btnRatioSel.Size = new System.Drawing.Size(139, 50);
+            this.btnRatioSel.TabIndex = 0;
+            this.btnRatioSel.Text = "RATIO_SEL";
+            this.btnRatioSel.UseVisualStyleBackColor = false;
             // 
             // tabPage1
             // 
@@ -401,7 +402,7 @@ namespace TestPageNavigation
             // btnTestTP
             // 
             this.btnTestTP.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestTP.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestTP.Location = new System.Drawing.Point(176, 132);
             this.btnTestTP.Name = "btnTestTP";
@@ -414,7 +415,7 @@ namespace TestPageNavigation
             // btnTestCC
             // 
             this.btnTestCC.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestCC.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestCC.Location = new System.Drawing.Point(176, 74);
             this.btnTestCC.Name = "btnTestCC";
@@ -427,7 +428,7 @@ namespace TestPageNavigation
             // btnTestVCAP
             // 
             this.btnTestVCAP.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestVCAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestVCAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestVCAP.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestVCAP.Location = new System.Drawing.Point(176, 19);
             this.btnTestVCAP.Name = "btnTestVCAP";
@@ -440,7 +441,7 @@ namespace TestPageNavigation
             // btnTestESFX
             // 
             this.btnTestESFX.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestESFX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestESFX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestESFX.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestESFX.Location = new System.Drawing.Point(30, 240);
             this.btnTestESFX.Name = "btnTestESFX";
@@ -453,7 +454,7 @@ namespace TestPageNavigation
             // btnTestIMEAS
             // 
             this.btnTestIMEAS.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestIMEAS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestIMEAS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestIMEAS.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestIMEAS.Location = new System.Drawing.Point(30, 188);
             this.btnTestIMEAS.Name = "btnTestIMEAS";
@@ -466,7 +467,7 @@ namespace TestPageNavigation
             // btnTestHall1LPF
             // 
             this.btnTestHall1LPF.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestHall1LPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestHall1LPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestHall1LPF.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestHall1LPF.Location = new System.Drawing.Point(30, 132);
             this.btnTestHall1LPF.Name = "btnTestHall1LPF";
@@ -479,7 +480,7 @@ namespace TestPageNavigation
             // btnTestHall2
             // 
             this.btnTestHall2.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestHall2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestHall2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestHall2.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestHall2.Location = new System.Drawing.Point(30, 74);
             this.btnTestHall2.Name = "btnTestHall2";
@@ -492,7 +493,7 @@ namespace TestPageNavigation
             // btnTestHall1
             // 
             this.btnTestHall1.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestHall1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestHall1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestHall1.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestHall1.Location = new System.Drawing.Point(30, 19);
             this.btnTestHall1.Name = "btnTestHall1";
@@ -505,7 +506,7 @@ namespace TestPageNavigation
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.SteelBlue;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.Control;
             this.button9.Location = new System.Drawing.Point(176, 240);
             this.button9.Name = "button9";
@@ -518,7 +519,7 @@ namespace TestPageNavigation
             // btnTestRAM
             // 
             this.btnTestRAM.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTestRAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestRAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestRAM.ForeColor = System.Drawing.SystemColors.Control;
             this.btnTestRAM.Location = new System.Drawing.Point(176, 188);
             this.btnTestRAM.Name = "btnTestRAM";
@@ -1516,6 +1517,11 @@ namespace TestPageNavigation
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // checkIfRadioRestartedTimer
+            // 
+            this.checkIfRadioRestartedTimer.Interval = 1000;
+            this.checkIfRadioRestartedTimer.Tick += new System.EventHandler(this.checkIfRadioRestartedTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1567,7 +1573,7 @@ namespace TestPageNavigation
         private System.Windows.Forms.Button btnLedOn;
         private System.Windows.Forms.Button btnLedOff;
         private System.Windows.Forms.Button btnAP;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnRatioSel;
         private System.Windows.Forms.Button btnExitRadio;
         private System.Windows.Forms.Button btnCSQ;
         private System.Windows.Forms.Button btnICCID;
@@ -1579,11 +1585,11 @@ namespace TestPageNavigation
         private TabPage tabPage1;
         private Panel panel2;
         private Label label5;
-        private Button button8;
-        private Button button7;
-        private Button button6;
-        private Button button3;
-        private Button button1;
+        private Button btnEFSG12;
+        private Button btnEFSG4;
+        private Button btnLZE;
+        private Button btnLB;
+        private Button btnHallSel;
         private TableLayoutPanel tableLayoutPanel1;
         private TextBox tbHallSel;
         private Label label9;
@@ -1605,7 +1611,7 @@ namespace TestPageNavigation
         private Label label6;
         private Label label4;
         private TextBox tbPuerto;
-        private Button button4;
+        private Button btnLZK;
         private Timer timer1;
         private Button btnTestTP;
         private Button btnTestCC;
@@ -1657,6 +1663,7 @@ namespace TestPageNavigation
         private Label label7;
         private TextBox tbHall1;
         private Label pfHall1;
+        private Timer checkIfRadioRestartedTimer;
     }
 }
 
