@@ -138,6 +138,15 @@ namespace TestPageNavigation
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkIfRadioRestartedTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.panelHiddenCredits = new System.Windows.Forms.Panel();
+            this.lblCreator = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgQuestionMark = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabInicio.SuspendLayout();
             this.tabComandos.SuspendLayout();
@@ -148,6 +157,9 @@ namespace TestPageNavigation
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panelHiddenCredits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgQuestionMark)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -306,6 +318,7 @@ namespace TestPageNavigation
             this.btnLZK.TabIndex = 7;
             this.btnLZK.Text = "LO_ZIN_SKY";
             this.btnLZK.UseVisualStyleBackColor = false;
+            this.btnLZK.Click += new System.EventHandler(this.btnLZK_Click);
             // 
             // btnEFSG12
             // 
@@ -318,6 +331,7 @@ namespace TestPageNavigation
             this.btnEFSG12.TabIndex = 6;
             this.btnEFSG12.Text = "EFS_G1/2";
             this.btnEFSG12.UseVisualStyleBackColor = false;
+            this.btnEFSG12.Click += new System.EventHandler(this.btnEFSG12_Click);
             // 
             // btnEFSG4
             // 
@@ -330,6 +344,7 @@ namespace TestPageNavigation
             this.btnEFSG4.TabIndex = 5;
             this.btnEFSG4.Text = "EFS_G4";
             this.btnEFSG4.UseVisualStyleBackColor = false;
+            this.btnEFSG4.Click += new System.EventHandler(this.btnEFSG4_Click);
             // 
             // btnLZE
             // 
@@ -342,6 +357,7 @@ namespace TestPageNavigation
             this.btnLZE.TabIndex = 4;
             this.btnLZE.Text = "LO_ZIN_EARTH";
             this.btnLZE.UseVisualStyleBackColor = false;
+            this.btnLZE.Click += new System.EventHandler(this.btnLZE_Click);
             // 
             // btnLB
             // 
@@ -354,6 +370,7 @@ namespace TestPageNavigation
             this.btnLB.TabIndex = 2;
             this.btnLB.Text = "LOWER_BURDEN";
             this.btnLB.UseVisualStyleBackColor = false;
+            this.btnLB.Click += new System.EventHandler(this.btnLB_Click);
             // 
             // btnHallSel
             // 
@@ -366,6 +383,7 @@ namespace TestPageNavigation
             this.btnHallSel.TabIndex = 1;
             this.btnHallSel.Text = "HALL_SEL";
             this.btnHallSel.UseVisualStyleBackColor = false;
+            this.btnHallSel.Click += new System.EventHandler(this.btnHallSel_Click);
             // 
             // btnRatioSel
             // 
@@ -378,6 +396,7 @@ namespace TestPageNavigation
             this.btnRatioSel.TabIndex = 0;
             this.btnRatioSel.Text = "RATIO_SEL";
             this.btnRatioSel.UseVisualStyleBackColor = false;
+            this.btnRatioSel.Click += new System.EventHandler(this.btnRatioSel_Click);
             // 
             // tabPage1
             // 
@@ -702,6 +721,7 @@ namespace TestPageNavigation
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(359, 272);
             this.tableLayoutPanel1.TabIndex = 1;
+     
             // 
             // tbHallSel
             // 
@@ -965,9 +985,9 @@ namespace TestPageNavigation
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.18919F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.81081F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.39286F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.60714F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tableLayoutPanel2.Controls.Add(this.pfCSQ, 2, 12);
             this.tableLayoutPanel2.Controls.Add(this.pfICCID, 2, 11);
             this.tableLayoutPanel2.Controls.Add(this.pfIMEI, 2, 10);
@@ -1032,9 +1052,9 @@ namespace TestPageNavigation
             this.pfCSQ.BackColor = System.Drawing.Color.White;
             this.pfCSQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfCSQ.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfCSQ.Location = new System.Drawing.Point(225, 504);
+            this.pfCSQ.Location = new System.Drawing.Point(227, 504);
             this.pfCSQ.Name = "pfCSQ";
-            this.pfCSQ.Size = new System.Drawing.Size(13, 45);
+            this.pfCSQ.Size = new System.Drawing.Size(11, 45);
             this.pfCSQ.TabIndex = 50;
             // 
             // pfICCID
@@ -1043,9 +1063,9 @@ namespace TestPageNavigation
             this.pfICCID.BackColor = System.Drawing.Color.White;
             this.pfICCID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfICCID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfICCID.Location = new System.Drawing.Point(225, 462);
+            this.pfICCID.Location = new System.Drawing.Point(227, 462);
             this.pfICCID.Name = "pfICCID";
-            this.pfICCID.Size = new System.Drawing.Size(13, 42);
+            this.pfICCID.Size = new System.Drawing.Size(11, 42);
             this.pfICCID.TabIndex = 49;
             // 
             // pfIMEI
@@ -1054,9 +1074,9 @@ namespace TestPageNavigation
             this.pfIMEI.BackColor = System.Drawing.Color.White;
             this.pfIMEI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfIMEI.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfIMEI.Location = new System.Drawing.Point(225, 420);
+            this.pfIMEI.Location = new System.Drawing.Point(227, 420);
             this.pfIMEI.Name = "pfIMEI";
-            this.pfIMEI.Size = new System.Drawing.Size(13, 42);
+            this.pfIMEI.Size = new System.Drawing.Size(11, 42);
             this.pfIMEI.TabIndex = 48;
             // 
             // pfFLASH
@@ -1065,9 +1085,9 @@ namespace TestPageNavigation
             this.pfFLASH.BackColor = System.Drawing.Color.White;
             this.pfFLASH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfFLASH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfFLASH.Location = new System.Drawing.Point(225, 378);
+            this.pfFLASH.Location = new System.Drawing.Point(227, 378);
             this.pfFLASH.Name = "pfFLASH";
-            this.pfFLASH.Size = new System.Drawing.Size(13, 42);
+            this.pfFLASH.Size = new System.Drawing.Size(11, 42);
             this.pfFLASH.TabIndex = 47;
             // 
             // pfRAM
@@ -1076,9 +1096,9 @@ namespace TestPageNavigation
             this.pfRAM.BackColor = System.Drawing.Color.White;
             this.pfRAM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfRAM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfRAM.Location = new System.Drawing.Point(225, 336);
+            this.pfRAM.Location = new System.Drawing.Point(227, 336);
             this.pfRAM.Name = "pfRAM";
-            this.pfRAM.Size = new System.Drawing.Size(13, 42);
+            this.pfRAM.Size = new System.Drawing.Size(11, 42);
             this.pfRAM.TabIndex = 46;
             // 
             // pfTP
@@ -1087,9 +1107,9 @@ namespace TestPageNavigation
             this.pfTP.BackColor = System.Drawing.Color.White;
             this.pfTP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfTP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfTP.Location = new System.Drawing.Point(225, 296);
+            this.pfTP.Location = new System.Drawing.Point(227, 296);
             this.pfTP.Name = "pfTP";
-            this.pfTP.Size = new System.Drawing.Size(13, 40);
+            this.pfTP.Size = new System.Drawing.Size(11, 40);
             this.pfTP.TabIndex = 45;
             // 
             // pfCapCharge
@@ -1098,9 +1118,9 @@ namespace TestPageNavigation
             this.pfCapCharge.BackColor = System.Drawing.Color.White;
             this.pfCapCharge.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfCapCharge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfCapCharge.Location = new System.Drawing.Point(225, 252);
+            this.pfCapCharge.Location = new System.Drawing.Point(227, 252);
             this.pfCapCharge.Name = "pfCapCharge";
-            this.pfCapCharge.Size = new System.Drawing.Size(13, 44);
+            this.pfCapCharge.Size = new System.Drawing.Size(11, 44);
             this.pfCapCharge.TabIndex = 44;
             // 
             // pfVCAP
@@ -1109,9 +1129,9 @@ namespace TestPageNavigation
             this.pfVCAP.BackColor = System.Drawing.Color.White;
             this.pfVCAP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfVCAP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfVCAP.Location = new System.Drawing.Point(225, 210);
+            this.pfVCAP.Location = new System.Drawing.Point(227, 210);
             this.pfVCAP.Name = "pfVCAP";
-            this.pfVCAP.Size = new System.Drawing.Size(13, 42);
+            this.pfVCAP.Size = new System.Drawing.Size(11, 42);
             this.pfVCAP.TabIndex = 43;
             // 
             // pfESFX
@@ -1120,9 +1140,9 @@ namespace TestPageNavigation
             this.pfESFX.BackColor = System.Drawing.Color.White;
             this.pfESFX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfESFX.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfESFX.Location = new System.Drawing.Point(225, 168);
+            this.pfESFX.Location = new System.Drawing.Point(227, 168);
             this.pfESFX.Name = "pfESFX";
-            this.pfESFX.Size = new System.Drawing.Size(13, 42);
+            this.pfESFX.Size = new System.Drawing.Size(11, 42);
             this.pfESFX.TabIndex = 42;
             // 
             // pfIMEAS
@@ -1131,9 +1151,9 @@ namespace TestPageNavigation
             this.pfIMEAS.BackColor = System.Drawing.Color.White;
             this.pfIMEAS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfIMEAS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfIMEAS.Location = new System.Drawing.Point(225, 126);
+            this.pfIMEAS.Location = new System.Drawing.Point(227, 126);
             this.pfIMEAS.Name = "pfIMEAS";
-            this.pfIMEAS.Size = new System.Drawing.Size(13, 42);
+            this.pfIMEAS.Size = new System.Drawing.Size(11, 42);
             this.pfIMEAS.TabIndex = 41;
             // 
             // pfHall1LPF
@@ -1142,9 +1162,9 @@ namespace TestPageNavigation
             this.pfHall1LPF.BackColor = System.Drawing.Color.White;
             this.pfHall1LPF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfHall1LPF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfHall1LPF.Location = new System.Drawing.Point(225, 84);
+            this.pfHall1LPF.Location = new System.Drawing.Point(227, 84);
             this.pfHall1LPF.Name = "pfHall1LPF";
-            this.pfHall1LPF.Size = new System.Drawing.Size(13, 42);
+            this.pfHall1LPF.Size = new System.Drawing.Size(11, 42);
             this.pfHall1LPF.TabIndex = 40;
             // 
             // pfHall2
@@ -1153,9 +1173,9 @@ namespace TestPageNavigation
             this.pfHall2.BackColor = System.Drawing.Color.White;
             this.pfHall2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfHall2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfHall2.Location = new System.Drawing.Point(225, 42);
+            this.pfHall2.Location = new System.Drawing.Point(227, 42);
             this.pfHall2.Name = "pfHall2";
-            this.pfHall2.Size = new System.Drawing.Size(13, 42);
+            this.pfHall2.Size = new System.Drawing.Size(11, 42);
             this.pfHall2.TabIndex = 39;
             // 
             // tbCSQ
@@ -1163,11 +1183,11 @@ namespace TestPageNavigation
             this.tbCSQ.BackColor = System.Drawing.Color.White;
             this.tbCSQ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCSQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbCSQ.Location = new System.Drawing.Point(90, 517);
+            this.tbCSQ.Location = new System.Drawing.Point(89, 517);
             this.tbCSQ.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbCSQ.Name = "tbCSQ";
             this.tbCSQ.ReadOnly = true;
-            this.tbCSQ.Size = new System.Drawing.Size(129, 21);
+            this.tbCSQ.Size = new System.Drawing.Size(132, 21);
             this.tbCSQ.TabIndex = 37;
             this.tbCSQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1176,11 +1196,11 @@ namespace TestPageNavigation
             this.tbICCID.BackColor = System.Drawing.Color.White;
             this.tbICCID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbICCID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbICCID.Location = new System.Drawing.Point(90, 475);
+            this.tbICCID.Location = new System.Drawing.Point(89, 475);
             this.tbICCID.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbICCID.Name = "tbICCID";
             this.tbICCID.ReadOnly = true;
-            this.tbICCID.Size = new System.Drawing.Size(129, 21);
+            this.tbICCID.Size = new System.Drawing.Size(132, 21);
             this.tbICCID.TabIndex = 36;
             this.tbICCID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1189,11 +1209,11 @@ namespace TestPageNavigation
             this.tbIMEI.BackColor = System.Drawing.Color.White;
             this.tbIMEI.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbIMEI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbIMEI.Location = new System.Drawing.Point(90, 433);
+            this.tbIMEI.Location = new System.Drawing.Point(89, 433);
             this.tbIMEI.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbIMEI.Name = "tbIMEI";
             this.tbIMEI.ReadOnly = true;
-            this.tbIMEI.Size = new System.Drawing.Size(129, 21);
+            this.tbIMEI.Size = new System.Drawing.Size(132, 21);
             this.tbIMEI.TabIndex = 35;
             this.tbIMEI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1202,11 +1222,11 @@ namespace TestPageNavigation
             this.tbFLASH.BackColor = System.Drawing.Color.White;
             this.tbFLASH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbFLASH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbFLASH.Location = new System.Drawing.Point(90, 391);
+            this.tbFLASH.Location = new System.Drawing.Point(89, 391);
             this.tbFLASH.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbFLASH.Name = "tbFLASH";
             this.tbFLASH.ReadOnly = true;
-            this.tbFLASH.Size = new System.Drawing.Size(129, 21);
+            this.tbFLASH.Size = new System.Drawing.Size(132, 21);
             this.tbFLASH.TabIndex = 34;
             this.tbFLASH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1215,11 +1235,11 @@ namespace TestPageNavigation
             this.tbRAM.BackColor = System.Drawing.Color.White;
             this.tbRAM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbRAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbRAM.Location = new System.Drawing.Point(90, 349);
+            this.tbRAM.Location = new System.Drawing.Point(89, 349);
             this.tbRAM.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbRAM.Name = "tbRAM";
             this.tbRAM.ReadOnly = true;
-            this.tbRAM.Size = new System.Drawing.Size(129, 21);
+            this.tbRAM.Size = new System.Drawing.Size(132, 21);
             this.tbRAM.TabIndex = 33;
             this.tbRAM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1228,11 +1248,11 @@ namespace TestPageNavigation
             this.tbTP.BackColor = System.Drawing.Color.White;
             this.tbTP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbTP.Location = new System.Drawing.Point(90, 309);
+            this.tbTP.Location = new System.Drawing.Point(89, 309);
             this.tbTP.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbTP.Name = "tbTP";
             this.tbTP.ReadOnly = true;
-            this.tbTP.Size = new System.Drawing.Size(129, 21);
+            this.tbTP.Size = new System.Drawing.Size(132, 21);
             this.tbTP.TabIndex = 32;
             this.tbTP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1241,11 +1261,11 @@ namespace TestPageNavigation
             this.tbCapCharge.BackColor = System.Drawing.Color.White;
             this.tbCapCharge.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCapCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbCapCharge.Location = new System.Drawing.Point(90, 265);
+            this.tbCapCharge.Location = new System.Drawing.Point(89, 265);
             this.tbCapCharge.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbCapCharge.Name = "tbCapCharge";
             this.tbCapCharge.ReadOnly = true;
-            this.tbCapCharge.Size = new System.Drawing.Size(129, 21);
+            this.tbCapCharge.Size = new System.Drawing.Size(132, 21);
             this.tbCapCharge.TabIndex = 31;
             this.tbCapCharge.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1254,11 +1274,11 @@ namespace TestPageNavigation
             this.tbVCAP.BackColor = System.Drawing.Color.White;
             this.tbVCAP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbVCAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbVCAP.Location = new System.Drawing.Point(90, 223);
+            this.tbVCAP.Location = new System.Drawing.Point(89, 223);
             this.tbVCAP.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbVCAP.Name = "tbVCAP";
             this.tbVCAP.ReadOnly = true;
-            this.tbVCAP.Size = new System.Drawing.Size(129, 21);
+            this.tbVCAP.Size = new System.Drawing.Size(132, 21);
             this.tbVCAP.TabIndex = 30;
             this.tbVCAP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1267,11 +1287,11 @@ namespace TestPageNavigation
             this.tbESFX.BackColor = System.Drawing.Color.White;
             this.tbESFX.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbESFX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbESFX.Location = new System.Drawing.Point(90, 181);
+            this.tbESFX.Location = new System.Drawing.Point(89, 181);
             this.tbESFX.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbESFX.Name = "tbESFX";
             this.tbESFX.ReadOnly = true;
-            this.tbESFX.Size = new System.Drawing.Size(129, 21);
+            this.tbESFX.Size = new System.Drawing.Size(132, 21);
             this.tbESFX.TabIndex = 29;
             this.tbESFX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1280,11 +1300,11 @@ namespace TestPageNavigation
             this.tbIMEAS.BackColor = System.Drawing.Color.White;
             this.tbIMEAS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbIMEAS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbIMEAS.Location = new System.Drawing.Point(90, 139);
+            this.tbIMEAS.Location = new System.Drawing.Point(89, 139);
             this.tbIMEAS.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbIMEAS.Name = "tbIMEAS";
             this.tbIMEAS.ReadOnly = true;
-            this.tbIMEAS.Size = new System.Drawing.Size(129, 21);
+            this.tbIMEAS.Size = new System.Drawing.Size(132, 21);
             this.tbIMEAS.TabIndex = 28;
             this.tbIMEAS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1293,11 +1313,11 @@ namespace TestPageNavigation
             this.tbHall1LPF.BackColor = System.Drawing.Color.White;
             this.tbHall1LPF.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHall1LPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbHall1LPF.Location = new System.Drawing.Point(90, 97);
+            this.tbHall1LPF.Location = new System.Drawing.Point(89, 97);
             this.tbHall1LPF.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbHall1LPF.Name = "tbHall1LPF";
             this.tbHall1LPF.ReadOnly = true;
-            this.tbHall1LPF.Size = new System.Drawing.Size(129, 21);
+            this.tbHall1LPF.Size = new System.Drawing.Size(132, 21);
             this.tbHall1LPF.TabIndex = 27;
             this.tbHall1LPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1306,11 +1326,11 @@ namespace TestPageNavigation
             this.tbHall2.BackColor = System.Drawing.Color.White;
             this.tbHall2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHall2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbHall2.Location = new System.Drawing.Point(90, 55);
+            this.tbHall2.Location = new System.Drawing.Point(89, 55);
             this.tbHall2.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbHall2.Name = "tbHall2";
             this.tbHall2.ReadOnly = true;
-            this.tbHall2.Size = new System.Drawing.Size(129, 21);
+            this.tbHall2.Size = new System.Drawing.Size(132, 21);
             this.tbHall2.TabIndex = 26;
             this.tbHall2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1323,7 +1343,7 @@ namespace TestPageNavigation
             this.label38.ForeColor = System.Drawing.Color.Black;
             this.label38.Location = new System.Drawing.Point(3, 504);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(81, 45);
+            this.label38.Size = new System.Drawing.Size(80, 45);
             this.label38.TabIndex = 24;
             this.label38.Text = "CSQ";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1337,7 +1357,7 @@ namespace TestPageNavigation
             this.label36.ForeColor = System.Drawing.Color.Black;
             this.label36.Location = new System.Drawing.Point(3, 462);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(81, 42);
+            this.label36.Size = new System.Drawing.Size(80, 42);
             this.label36.TabIndex = 22;
             this.label36.Text = "ICCID";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1351,7 +1371,7 @@ namespace TestPageNavigation
             this.label34.ForeColor = System.Drawing.Color.Black;
             this.label34.Location = new System.Drawing.Point(3, 420);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(81, 42);
+            this.label34.Size = new System.Drawing.Size(80, 42);
             this.label34.TabIndex = 20;
             this.label34.Text = "IMEI";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1364,7 +1384,7 @@ namespace TestPageNavigation
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(3, 378);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(81, 42);
+            this.label32.Size = new System.Drawing.Size(80, 42);
             this.label32.TabIndex = 18;
             this.label32.Text = "FLASH";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1377,7 +1397,7 @@ namespace TestPageNavigation
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(3, 336);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(81, 42);
+            this.label30.Size = new System.Drawing.Size(80, 42);
             this.label30.TabIndex = 16;
             this.label30.Text = "RAM";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1389,7 +1409,7 @@ namespace TestPageNavigation
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(3, 296);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(81, 40);
+            this.label28.Size = new System.Drawing.Size(80, 40);
             this.label28.TabIndex = 14;
             this.label28.Text = "TP";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1401,7 +1421,7 @@ namespace TestPageNavigation
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(3, 252);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(81, 44);
+            this.label26.Size = new System.Drawing.Size(80, 44);
             this.label26.TabIndex = 12;
             this.label26.Text = "CapCharge";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1413,7 +1433,7 @@ namespace TestPageNavigation
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(3, 210);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(81, 42);
+            this.label24.Size = new System.Drawing.Size(80, 42);
             this.label24.TabIndex = 10;
             this.label24.Text = "VCAP";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1425,7 +1445,7 @@ namespace TestPageNavigation
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(3, 168);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(81, 42);
+            this.label22.Size = new System.Drawing.Size(80, 42);
             this.label22.TabIndex = 8;
             this.label22.Text = "EFSX";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1437,7 +1457,7 @@ namespace TestPageNavigation
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(3, 126);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(81, 42);
+            this.label19.Size = new System.Drawing.Size(80, 42);
             this.label19.TabIndex = 6;
             this.label19.Text = "IMEAS";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1449,7 +1469,7 @@ namespace TestPageNavigation
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(3, 84);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(81, 42);
+            this.label15.Size = new System.Drawing.Size(80, 42);
             this.label15.TabIndex = 4;
             this.label15.Text = "Hall1 LPF";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1461,7 +1481,7 @@ namespace TestPageNavigation
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(3, 42);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 42);
+            this.label11.Size = new System.Drawing.Size(80, 42);
             this.label11.TabIndex = 2;
             this.label11.Text = "Hall2";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1473,7 +1493,7 @@ namespace TestPageNavigation
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 42);
+            this.label7.Size = new System.Drawing.Size(80, 42);
             this.label7.TabIndex = 0;
             this.label7.Text = "Hall1";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1483,11 +1503,11 @@ namespace TestPageNavigation
             this.tbHall1.BackColor = System.Drawing.Color.White;
             this.tbHall1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHall1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tbHall1.Location = new System.Drawing.Point(90, 13);
+            this.tbHall1.Location = new System.Drawing.Point(89, 13);
             this.tbHall1.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.tbHall1.Name = "tbHall1";
             this.tbHall1.ReadOnly = true;
-            this.tbHall1.Size = new System.Drawing.Size(129, 21);
+            this.tbHall1.Size = new System.Drawing.Size(132, 21);
             this.tbHall1.TabIndex = 25;
             this.tbHall1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1497,9 +1517,9 @@ namespace TestPageNavigation
             this.pfHall1.BackColor = System.Drawing.Color.White;
             this.pfHall1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pfHall1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pfHall1.Location = new System.Drawing.Point(225, 0);
+            this.pfHall1.Location = new System.Drawing.Point(227, 0);
             this.pfHall1.Name = "pfHall1";
-            this.pfHall1.Size = new System.Drawing.Size(13, 42);
+            this.pfHall1.Size = new System.Drawing.Size(11, 42);
             this.pfHall1.TabIndex = 38;
             // 
             // label5
@@ -1522,11 +1542,114 @@ namespace TestPageNavigation
             this.checkIfRadioRestartedTimer.Interval = 1000;
             this.checkIfRadioRestartedTimer.Tick += new System.EventHandler(this.checkIfRadioRestartedTimer_Tick);
             // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Cursor = System.Windows.Forms.Cursors.Help;
+            this.lblVersion.ForeColor = System.Drawing.Color.Gray;
+            this.lblVersion.Location = new System.Drawing.Point(901, 1);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(53, 13);
+            this.lblVersion.TabIndex = 6;
+            this.lblVersion.Text = "Ver. 2.0.0";
+            this.lblVersion.Click += new System.EventHandler(this.lblVersion_Click);
+            // 
+            // panelHiddenCredits
+            // 
+            this.panelHiddenCredits.BackColor = System.Drawing.Color.White;
+            this.panelHiddenCredits.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelHiddenCredits.Controls.Add(this.textBox4);
+            this.panelHiddenCredits.Controls.Add(this.textBox3);
+            this.panelHiddenCredits.Controls.Add(this.textBox2);
+            this.panelHiddenCredits.Controls.Add(this.textBox1);
+            this.panelHiddenCredits.Controls.Add(this.lblCreator);
+            this.panelHiddenCredits.Controls.Add(this.pictureBox1);
+            this.panelHiddenCredits.Location = new System.Drawing.Point(12, 428);
+            this.panelHiddenCredits.Name = "panelHiddenCredits";
+            this.panelHiddenCredits.Size = new System.Drawing.Size(698, 171);
+            this.panelHiddenCredits.TabIndex = 8;
+            this.panelHiddenCredits.Visible = false;
+            this.panelHiddenCredits.Leave += new System.EventHandler(this.panelHiddenCredits_Leave);
+            // 
+            // lblCreator
+            // 
+            this.lblCreator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreator.Location = new System.Drawing.Point(181, 17);
+            this.lblCreator.Name = "lblCreator";
+            this.lblCreator.Size = new System.Drawing.Size(407, 145);
+            this.lblCreator.TabIndex = 1;
+            this.lblCreator.Text = "Author:\r\n\r\nJabil Email : \r\n\r\nPersonal Email: \r\n\r\nBuilt in: ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AGMGUITESTER.Properties.Resources.kirbystandind;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(122, 113);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // imgQuestionMark
+            // 
+            this.imgQuestionMark.Image = global::AGMGUITESTER.Properties.Resources.QuestionBlock;
+            this.imgQuestionMark.Location = new System.Drawing.Point(876, 0);
+            this.imgQuestionMark.Name = "imgQuestionMark";
+            this.imgQuestionMark.Size = new System.Drawing.Size(19, 14);
+            this.imgQuestionMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgQuestionMark.TabIndex = 7;
+            this.imgQuestionMark.TabStop = false;
+            this.imgQuestionMark.Visible = false;
+            this.imgQuestionMark.Click += new System.EventHandler(this.imgQuestionMark_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(249, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "Daniel Romo\r\n";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(274, 54);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(216, 26);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "Daniel_Romo@Jabil.com";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(303, 93);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(256, 26);
+            this.textBox3.TabIndex = 4;
+            this.textBox3.Text = "NintendoFullPower@Hotmail.com";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(240, 133);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(154, 26);
+            this.textBox4.TabIndex = 5;
+            this.textBox4.Text = "C# and WinForms";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 611);
+            this.ClientSize = new System.Drawing.Size(962, 606);
+            this.Controls.Add(this.panelHiddenCredits);
+            this.Controls.Add(this.imgQuestionMark);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1534,7 +1657,9 @@ namespace TestPageNavigation
             this.Controls.Add(this.tbStatus);
             this.Controls.Add(this.tbRespuesta);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "AGM GUI Tester ";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1552,6 +1677,10 @@ namespace TestPageNavigation
             this.panel2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panelHiddenCredits.ResumeLayout(false);
+            this.panelHiddenCredits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgQuestionMark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1664,6 +1793,15 @@ namespace TestPageNavigation
         private TextBox tbHall1;
         private Label pfHall1;
         private Timer checkIfRadioRestartedTimer;
+        private Label lblVersion;
+        private PictureBox imgQuestionMark;
+        private Panel panelHiddenCredits;
+        private PictureBox pictureBox1;
+        private Label lblCreator;
+        private TextBox textBox4;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private TextBox textBox1;
     }
 }
 

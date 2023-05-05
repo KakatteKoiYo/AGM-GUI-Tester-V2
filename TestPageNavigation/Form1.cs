@@ -9,6 +9,8 @@ namespace TestPageNavigation
 {
     public partial class Form1 : Form
     {
+        string appVersion = "Ver. 2.0.0";
+
         SerialPort serialPort = new SerialPort();
         string[] puertos;
         string mcResponse;
@@ -29,9 +31,12 @@ namespace TestPageNavigation
                 "■ La fuente esté encendida y configurada a 5V+\r\n" +
                 "■ La unidad esté programada con firmware de debug\r\n" +
                 "■ El puerto seleccionado sea el correcto";
+            lblVersion.Text = appVersion;
 
         }
 
+        //Impide que se cambie de pestaña bajo ciertas circunstancias. 
+        //No se puede cambiar de pestaña si no se ha booteado la unidad, o si la unidad está comunicándose con el módulo
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (connectedBoard == false)
@@ -44,6 +49,8 @@ namespace TestPageNavigation
             }
 
         }
+
+        //Elimina todos los valores previamente establecidos y regresa a la selección de puerto.
         private void resetForm()
         {
 
@@ -68,8 +75,6 @@ namespace TestPageNavigation
             }
 
             
-
-
             pfHall1.BackColor = System.Drawing.Color.White;
             pfHall2.BackColor = System.Drawing.Color.White;
             pfHall1LPF.BackColor = System.Drawing.Color.White;
@@ -94,19 +99,17 @@ namespace TestPageNavigation
             connectedBoard = false;
             btnReboot.Enabled = false;
             getPorts();
-            
-
-
-            
-
 
         }
+
+        //Actualiza los puertos disponibles cada que entra a la función
         private void getPorts()
         {
             comboBox1.Items.Clear();
             puertos = SerialPort.GetPortNames();
             comboBox1.Items.AddRange(puertos);
         }
+
 
         private string sendCommand(string comando, int timeout, bool waitEcho = true, string expected = "mvm>", string customMessage = "Esperando respuesta...")
         {
@@ -184,6 +187,7 @@ namespace TestPageNavigation
             return respuestaRadio;
         }
 
+        //Cada que se selecciona un puerto disponible trata de cerrarlo si es que está abierto. Y luego lo abre. 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string puerto = comboBox1.Text;
@@ -201,13 +205,46 @@ namespace TestPageNavigation
 
         }
 
-        private void swapAP()
+        //Activa/Desactiva los voltajes
+        private void toggleAP()
         {
-            mcResponse = sendCommand("AP\n", 3000);
+            string mensaje;
+            if(tbAP.Text == "FALSE")
+            {
+                mensaje = "Activando";
+            }
+            else
+            {
+                mensaje = "Desactivando";
+            }
+             
+            mcResponse = sendCommand("AP\n", 3000, customMessage: $"{mensaje} voltajes...");
             showMessageOnResponseBox(mcResponse);
             tbAP.Text = mcResponse.Split('=')[1].Trim();
         }
-        
+
+        //Cambia el estado del pin
+        private void togglePinPort(TextBox textbox, string pin, string pinName)
+        {
+            string value;
+
+            if (textbox.Text == "FALSE")
+            {
+                sendCommand($"S {pin} 1\n", 2000);
+            }
+            else if (textbox.Text == "TRUE")
+            {
+                sendCommand($"S {pin} 0\n", 2000);
+            }
+
+            value = sendCommand($"R {pin}\n", 2000);
+            value = value.Split(':')[1].Trim();
+
+            textbox.Text = convertToTrueOrFalse(value);
+
+            showMessageOnResponseBox($"Señal [{pinName}] ahora es {value}");
+        }
+
       
         private bool isMeasureOK(int min, int max, float value)
         {
@@ -255,12 +292,13 @@ namespace TestPageNavigation
             }
 
         }
-
+        //Muestra un mensaje en el TextBox de status
         private void showMessageOnStatusBox(string statusMessage)
         {
             tbStatus.Text = statusMessage;
         }
 
+        //Muestra un mensaje en el TextBox grande de respuesta.
         private void showMessageOnResponseBox(string responseMessage, bool append = false)
         {
             if (append)
@@ -350,9 +388,10 @@ namespace TestPageNavigation
 
         private void btnAP_Click(object sender, EventArgs e)
         {
-            swapAP();
+            toggleAP();
         }
 
+        //Valida cada segundo que haya respuesta de la unidad. Si no la hay, envía un mensaje y reinicia el Form.
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -383,7 +422,7 @@ namespace TestPageNavigation
 
         private void exitRadio(bool errorRadio = false)
         {
-            //string bufferExit; 
+      
 
             modoRadio = false;
             btnGSN.Enabled = false;
@@ -397,7 +436,7 @@ namespace TestPageNavigation
             showMessageOnResponseBox("");
             showMessageOnStatusBox("");
 
-            if (connectedBoard == false) 
+            if (connectedBoard == true) 
             {
                 try
                 {
@@ -407,11 +446,8 @@ namespace TestPageNavigation
                     serialPort.ReadTimeout = 3000;
                     serialPort.Write("\u001A");
 
-
-                    //bufferExit = 
                     serialPort.ReadTo("mvm>");
 
-                    //MessageBox.Show(bufferExit);
                     if (errorRadio == true)
                     {
                         showMessageOnResponseBox(
@@ -656,7 +692,7 @@ namespace TestPageNavigation
 
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
 
             if (tbHallSel.Text == "TRUE")
@@ -700,7 +736,7 @@ namespace TestPageNavigation
 
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
 
             if (tbHallSel.Text == "FALSE")
@@ -741,7 +777,7 @@ namespace TestPageNavigation
             
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
             mcResponse = sendCommand("ihall1\n", 7000);
             showMessageOnResponseBox(mcResponse);
@@ -772,7 +808,7 @@ namespace TestPageNavigation
 
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
             mcResponse = sendCommand("imeas\n", 5000);
             showMessageOnResponseBox(mcResponse);
@@ -800,7 +836,7 @@ namespace TestPageNavigation
         {
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
             mcResponse = sendCommand("efsx\n", 5000);
             showMessageOnResponseBox(mcResponse);
@@ -831,7 +867,7 @@ namespace TestPageNavigation
 
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
 
             mcResponse = sendCommand("vcap\n", 5000);
@@ -860,7 +896,7 @@ namespace TestPageNavigation
         {
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
 
             mcResponse = sendCommand("capcharged\n", 7000);
@@ -878,7 +914,7 @@ namespace TestPageNavigation
             }
             else
             {
-                pfCapCharge.BackColor = System.Drawing.Color.Red;
+                pfCapCharge.BackColor = System.Drawing.Color.Orange;
                 showMessageOnResponseBox("\r\nEl microcontrolador indica que VCAP no está en su máximo voltaje", append: true);
                
             }
@@ -890,7 +926,7 @@ namespace TestPageNavigation
 
             if (tbAP.Text == "FALSE")
             {
-                swapAP();
+                toggleAP();
             }
             mcResponse = sendCommand("tp\n", 5000);
    
@@ -921,9 +957,9 @@ namespace TestPageNavigation
         {
             DialogResult respuestaAlertaRam;
             respuestaAlertaRam = MessageBox.Show(
-                "Si ya realizaste la prueba de RAM o FLASH a esta unidad es probable que al intentar hacerla de nuevo se reinicie\r\n" +
-                "En caso de que se reinicie, normalmente bastará con intentar de nuevo\r\n" +
-                "Si el error persiste podría haber un problema con la unidad\r\n\r\n" +
+                "Si ya realizaste antes la prueba de RAM o FLASH es probable que al intentar hacerla de nuevo se reinicie la unidad\r\n" +
+                "En caso de que se reinicie, normalmente bastará con intentar hacer la prueba de nuevo\r\n" +
+                "Si el error persiste podría deberse a un problema con la unidad\r\n\r\n" +
                 "¿Deseas realizar la prueba?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (respuestaAlertaRam == DialogResult.No)
             {
@@ -956,16 +992,16 @@ namespace TestPageNavigation
                 }
             }
         }
-
+        //Valida cada segundo que en el buffer no esté información que indique que se reinició. En caso de que lo haya el Form se reiniciará
+        //para regresar a la pantalla de selección de puerto
         private void checkIfRadioRestartedTimer_Tick(object sender, EventArgs e)
         {
-
             string buffer;
 
             checkIfRadioRestartedTimer.Stop();
 
             buffer = serialPort.ReadExisting();
-            if(buffer.Contains("MV Monitor"))
+            if (buffer.Contains("MV Monitor"))
             {
                 resetForm();
                 showMessageOnResponseBox("Ocurrió un error de comunicación con el módulo");
@@ -974,10 +1010,79 @@ namespace TestPageNavigation
             {
                 checkIfRadioRestartedTimer.Start();
             }
-            
-
-            
 
         }
+
+        private void btnRatioSel_Click(object sender, EventArgs e)
+        {
+            togglePinPort(textbox: tbRatioSel, pin: "P5.7", pinName: "RATIO_SEL");
+        }
+
+        private void btnHallSel_Click(object sender, EventArgs e)
+        {
+            togglePinPort(textbox: tbHallSel, pin: "P2.2", pinName: "HALL_SEL");
+        }
+
+        private void btnLB_Click(object sender, EventArgs e)
+        {
+            togglePinPort(textbox: tbLowerBurden, pin: "P1.7", pinName: "LOWER_BURDEN");
+        }
+
+        private void btnLZK_Click(object sender, EventArgs e)
+        {
+            if(tbAP.Text == "FALSE")
+            {
+                toggleAP();
+            }
+            togglePinPort(textbox: tbLoZinSky, pin: "P4.6", pinName: "LO_ZIN_SKY");
+        }
+
+        private void btnLZE_Click(object sender, EventArgs e)
+        {
+            if (tbAP.Text == "FALSE")
+            {
+                toggleAP();
+            }
+            togglePinPort(textbox: tbLoZinEarth, pin: "P4.7", pinName: "LO_ZIN_EARTH");
+        }
+
+        private void btnEFSG4_Click(object sender, EventArgs e)
+        {
+            if (tbAP.Text == "FALSE")
+            {
+                toggleAP();
+            }
+            togglePinPort(textbox: tbEFSG4, pin: "P4.5", pinName: "EFS_G4");
+        }
+
+        private void btnEFSG12_Click(object sender, EventArgs e)
+        {
+            if (tbAP.Text == "FALSE")
+            {
+                toggleAP();
+            }
+            togglePinPort(textbox: tbEFSG1_5, pin: "P4.4", pinName: "EFS_G1/2");
+        }
+
+        private void lblVersion_Click(object sender, EventArgs e)
+        {
+            imgQuestionMark.Visible = true;
+            lblVersion.Cursor = Cursors.Default;
+        }
+
+        private void panelHiddenCredits_Leave(object sender, EventArgs e)
+        {
+            panelHiddenCredits.Visible = false;
+            imgQuestionMark.Visible = false;
+            lblVersion.Cursor = Cursors.Help;
+        }
+
+        private void imgQuestionMark_Click(object sender, EventArgs e)
+        {
+            panelHiddenCredits.Visible = true;
+            panelHiddenCredits.Focus();
+        }
+
+
     }
 }
